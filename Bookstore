@@ -1,0 +1,40 @@
+package com.company;
+
+public class Bookstore {
+    private String product;
+    private Double price;
+    private String product2;
+    private Double price2;
+
+    public String getProduct() {
+        return product;
+    }
+
+    public void setProduct(String product) {
+        this.product = product;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public String getProduct2() {
+        return product2;
+    }
+
+    public void setProduct2(String product2) {
+        this.product2 = product2;
+    }
+
+    public Double getPrice2() {
+        return price2;
+    }
+
+    public void setPrice2(Double price2) {
+        this.price2 = price2;
+    }
+}
