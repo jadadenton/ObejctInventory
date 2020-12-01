@@ -1,0 +1,96 @@
+package com.company;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        ArrayList<Bookstore> items = new ArrayList<Bookstore>();
+
+        Bookstore bs = new Bookstore();
+        bs.setProduct("Bison Sweater");
+        bs.setPrice(55.99);
+        items.add(bs);
+
+        Bookstore bs1 = new Bookstore();
+        bs1.setProduct("Bison Tee");
+        bs1.setPrice(14.99);
+        items.add(bs1);
+
+        Bookstore bs2 = new Bookstore();
+        bs2.setProduct("Bison Hoodie");
+        bs2.setPrice(23.99);
+        items.add(bs2);
+
+        Bookstore bs3 = new Bookstore();
+        bs3.setProduct("Bison Bumpersticker");
+        bs3.setPrice(4.99);
+        items.add(bs3);
+        
+        Scanner input = new Scanner(System.in);
+        String response = "";
+        ArrayList<Bookstore> purchases = new ArrayList<Bookstore>();
+
+        do {
+            System.out.println("Make a Selection");
+            System.out.println("1) add purchase 2) change purchase 3) show purchases 4) finish transaction");
+            response = input.nextLine();
+
+            if (response.equals("1")) {
+                for (int i = 0; i < items.size(); i++) {
+                    System.out.println(items.get(i).getProduct() + " " + items.get(i).getPrice());
+                }
+
+                System.out.println("What do you wish to buy?");
+                String selection = input.nextLine();
+                Bookstore ps = new Bookstore();
+                ps.setProduct2(selection);
+                //find position
+                int position = 0;
+                for (int i = 0; i < items.size(); i++) {
+                    if(items.get(i).getProduct().equals(selection)){
+                        position = i;
+                    }
+                }
+                Double newprice = items.get(position).getPrice();
+                ps.setPrice2(newprice);
+                purchases.add(ps);
+                
+                
+
+            } else if (response.equals("2")) {
+                System.out.println("What do you wish to remove?");
+                for (int i = 0; i < purchases.size(); i++) {
+                    System.out.println(purchases.get(i).getProduct2());
+                }
+                    String delete = input.nextLine();
+                    int position = 0;
+                    for (int i = 0; i < purchases.size(); i++) {
+                        if(purchases.get(i).getProduct2().equals(delete));{
+                             position = i;
+                        }
+                }
+                purchases.remove(position);
+
+            } else if (response.equals("3")) {
+                System.out.println("Purchases Displayed");
+                for (int i = 0; i < purchases.size(); i++) {
+                    System.out.println(purchases.get(i).getProduct2()+ " " + purchases.get(i).getPrice2());
+                }
+            }
+
+        } while (!response.equals("4")) ;
+
+            double totalcost = 0.0;
+            for (int i = 0; i < purchases.size(); i++) {
+                double val = purchases.get(i).getPrice2();
+                totalcost = totalcost + val;
+
+            }
+        System.out.println("Total Cost:" + " " + totalcost);
+
+            }
+
+
+        }
